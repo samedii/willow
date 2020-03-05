@@ -1,8 +1,9 @@
 import arcade
 
 
-SCREEN_WIDTH = 600
-SCREEN_HEIGHT = 600
+SCREEN_WIDTH = 1000
+SCREEN_HEIGHT = 650
+SCREEN_TITLE = "Willow"
 
 
 def draw_ground():
@@ -33,20 +34,31 @@ def draw_pine_tree(x, y):
     )
 
 
+class WillowGame(arcade.Window):
+    def __init__(self):
+
+        # Call the parent class and set up the window
+        super().__init__(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE)
+
+        arcade.set_background_color(arcade.csscolor.CORNFLOWER_BLUE)
+
+    def setup(self):
+        pass
+
+    def on_draw(self):
+        arcade.start_render()
+        draw_ground()
+        draw_pine_tree(50, 250)
+        draw_pine_tree(350, 320)
+        draw_bird(70, 500)
+        draw_bird(470, 550)
+
+
 def main():
-    arcade.open_window(SCREEN_WIDTH, SCREEN_HEIGHT, 'Test arcade')
-
-    arcade.start_render()
-
-    draw_ground()
-    draw_pine_tree(50, 250)
-    draw_pine_tree(350, 320)
-    draw_bird(70, 500)
-    draw_bird(470, 550)
-    arcade.finish_render()
-
+    window = WillowGame()
+    window.setup()
     arcade.run()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
