@@ -3,7 +3,6 @@ import Camera from "./components/camera";
 import Cuphead from "./components/cuphead";
 import HUD from "./components/hud";
 import Turntable from "./components/turntable";
-import Jet from "./components/jet";
 import { clear } from "./utils/three";
 import * as OIMO from "oimo";
 
@@ -35,9 +34,8 @@ export default async () => {
 	camera.lookAt(new THREE.Vector3(0, 0, 0));
 
 	const cuphead = await Cuphead({ y: 1 });
-	const jet = await Jet({ y: 1 });
 	
-	const turntable = Turntable({ parent: scene, world, items: [cuphead, jet] });	
+	const turntable = Turntable({ parent: scene, world, items: [cuphead] });	
 	const hud = HUD();
 
 	const entities = {
@@ -45,7 +43,6 @@ export default async () => {
 		camera,
 		world,
 		cuphead,
-		jet,
 		turntable,
 		hud
 	}
