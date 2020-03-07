@@ -9,6 +9,7 @@ class Game extends React.Component {
   render() {
     return (
       <GameEngine
+        style={{ width: 800, height: 600, backgroundColor: "blue" }}
         className="game"
         systems={Systems}
         entities={Entities()}
