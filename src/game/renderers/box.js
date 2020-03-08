@@ -12,4 +12,4 @@ class Box extends PureComponent {
   }
 }
 
-export { Box };
+export default Box;
