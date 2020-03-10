@@ -1,3 +1,4 @@
 import Box from "./box";
+import Bunny from "./bunny";
 
-export { Box };
+export { Box, Bunny };
