@@ -1,23 +1,21 @@
 import React from "react";
-import { Graphics } from '@inlet/react-pixi'
+import { Container, Graphics } from '@inlet/react-pixi';
 
 
 function Box(props) {
   return (
-    <Graphics
-      // preventRedraw={true}
-      draw={g => {
-        // clear the graphics
-        g.clear()
-        // start drawing
-
-        g.beginFill(0xff00bb)
-        g.drawRect(props.x, props.y, 50, 50)
-        g.endFill()
-
-      }}
-    />
+    <Container position={[props.x, props.y]} rotation={props.rotation} pivot={50}>
+      <Graphics
+        draw={g => {
+          g.clear()
+          g.beginFill(0xff00bb)
+          g.drawRect(0, 0, props.width, props.height)
+          g.endFill()
+        }}
+      />
+    </Container>
   );
 }
 
 export default Box;
+
