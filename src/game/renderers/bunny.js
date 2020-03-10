@@ -1,5 +1,5 @@
 import React from "react";
-import { Sprite } from "react-pixi-fiber";
+import { Sprite } from "@inlet/react-pixi";
 import * as PIXI from "pixi.js";
 
 const bunny = "https://i.imgur.com/IaUrttj.png";
