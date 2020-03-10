@@ -4,7 +4,7 @@ import { Box, Bunny } from "./renderers";
 export default async () => {
 
 	const entities = {
-		ericas_box: { x: 200,  y: 200, renderer: <Box /> },
+		ericas_box: { x: 200,  y: 200, width: 100, height: 100, rotation: Math.PI / 4, renderer: <Box /> },
 		// pauls_box: { x: 50,  y: 50, renderer: <Box /> },
 		pauls_bunny: { x: 100,  y: 200, renderer: <Bunny /> },
 	}
