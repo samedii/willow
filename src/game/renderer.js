@@ -1,5 +1,5 @@
 import React from "react";
-import { Stage } from "react-pixi-fiber";
+import { Stage } from "@inlet/react-pixi";
 
 const OPTIONS = {
     backgroundColor: 0x1099bb,
@@ -13,9 +13,10 @@ export default (entities, window) => {
     var hello = Object.keys(entities)
         .filter(key => entities[key].renderer)
         .map(key => {
+            let child = undefined;
             let entity = entities[key];
             if (typeof entity.renderer === "object")
-                return (
+                child = (
                     <entity.renderer.type
                         key={key}
                         window={window}
@@ -23,9 +24,10 @@ export default (entities, window) => {
                     />
                 );
             else if (typeof entity.renderer === "function")
-                return (
+                child = (
                     <entity.renderer key={key} window={window} {...entity} />
                 );
+            return child
         });
 
     return <Stage options={OPTIONS} children={hello} />
