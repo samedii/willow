@@ -1,15 +1,23 @@
-import React, { PureComponent } from "react";
+import React from "react";
+import { Graphics } from '@inlet/react-pixi'
 
 
-class Box extends PureComponent {
-  render() {
-    const size = 100;
-    const x = this.props.x - size / 2;
-    const y = this.props.y - size / 2;
-    return (
-      <div style={{ position: "absolute", width: size, height: size, backgroundColor: "red", left: x, top: y }} />
-    );
-  }
+function Box(props) {
+  return (
+    <Graphics
+      // preventRedraw={true}
+      draw={g => {
+        // clear the graphics
+        g.clear()
+        // start drawing
+
+        g.beginFill(0xff00bb)
+        g.drawRect(props.x, props.y, 50, 50)
+        g.endFill()
+
+      }}
+    />
+  );
 }
 
 export default Box;
