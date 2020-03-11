@@ -1,3 +1,4 @@
-import { MoveBox } from "./move-box";
+import MoveBox from "./move-box";
+import RotateBox from "./rotate-box";
 
-export default [MoveBox];
+export default [MoveBox, RotateBox];

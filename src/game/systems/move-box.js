@@ -9,13 +9,13 @@ const MoveBox = (entities, { input }) => {
   const { payload } = input.find(x => x.name === "onMouseDown") || {};
 
   if (payload) {
-    const ericas_box = entities["ericas_box"];
+    const player_box = entities["player_box"];
 
-    ericas_box.x = payload.pageX;
-    ericas_box.y = payload.pageY;
+    player_box.x = payload.pageX;
+    player_box.y = payload.pageY;
   }
 
   return entities;
 };
 
-export { MoveBox };
+export default MoveBox;

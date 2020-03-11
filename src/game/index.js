@@ -2,7 +2,7 @@ import React from "react";
 import { GameEngine } from "react-game-engine";
 import Systems from "./systems";
 import Entities from "./entities";
-import Renderer from "./renderer";
+import Renderer from "./react-pixi-renderer";
 
 import "../index.css";
 
