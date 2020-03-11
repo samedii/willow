@@ -10,7 +10,7 @@ const OPTIONS = {
 export default (entities, window) => {
     if (!entities || !window) return null;
     
-    var hello = Object.keys(entities)
+    var renderedEntities = Object.keys(entities)
         .filter(key => entities[key].renderer)
         .map(key => {
             let child = undefined;
@@ -30,5 +30,5 @@ export default (entities, window) => {
             return child
         });
 
-    return <Stage options={OPTIONS} children={hello} />
+    return <Stage options={OPTIONS} children={renderedEntities} />
 };
