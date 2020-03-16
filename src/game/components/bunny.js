@@ -9,6 +9,7 @@ function Bunny(props) {
   return (
     <Sprite
       anchor={centerAnchor}
+      angle={90}
       texture={PIXI.Texture.from(bunny)}
       {...props}
     />
