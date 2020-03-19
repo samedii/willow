@@ -3,6 +3,7 @@
     "@inlet/react-pixi": "^1.2.4",
     "@popmotion/popcorn": "^0.4.0",
     "lodash": "^4.17.11",
+    "matter-js": "^0.14.2",
     "oimo": "^1.0.9",
     "pixi.js": "^5.2.1",
     "react": "^16.8.4",
