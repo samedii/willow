@@ -30,7 +30,7 @@ const MoveBox = (entities, { input }) => {
 
     if (player_box.animating) {
 
-        // let rotation = player_box.body.angle + Math.PI;
+        
 
         // if (player_box.animation === "roll_right") {
 
@@ -65,10 +65,12 @@ const MoveBox = (entities, { input }) => {
 
         const { payload } = input.find(x => x.name === "onKeyPress") || {};
 
-        player_box.body.angle = Math.atan2(
-            mouse_y - player_box.body.position.y,
-            mouse_x - player_box.body.position.x,
-        )
+        if (mouse_x && mouse_x) {
+            Body.setAngle(player_box.body, Math.atan2(
+                mouse_y - player_box.body.position.y,
+                mouse_x - player_box.body.position.x,
+            ));
+        }
 
         if (payload) {
 
@@ -81,12 +83,14 @@ const MoveBox = (entities, { input }) => {
                 player_box.pivot_y = player_box.body.position.y + roll_distance * Math.sin(player_box.target_rotation);
             }
             else if (payload.key === "d") {
-                player_box.animating = true;
-                player_box.animation = "roll_right";
-                player_box.target_rotation = rotation + Math.PI / 2;
-                // player_box.body.angle = player_box.target_rotation - Math.PI;
-                player_box.pivot_x = player_box.body.position.x + roll_distance * Math.cos(player_box.target_rotation);
-                player_box.pivot_y = player_box.body.position.y + roll_distance * Math.sin(player_box.target_rotation);
+                // player_box.animating = true;
+                // player_box.animation = "roll_right";
+                // player_box.target_rotation = rotation + Math.PI / 2;
+                // // player_box.body.angle = player_box.target_rotation - Math.PI;
+                // player_box.pivot_x = player_box.body.position.x + roll_distance * Math.cos(player_box.target_rotation);
+                // player_box.pivot_y = player_box.body.position.y + roll_distance * Math.sin(player_box.target_rotation);
+
+                
             }
             else if (payload.key === "w") {
                 Body.translate(player_box.body, { x: 0, y: -roll_distance });
@@ -95,9 +99,8 @@ const MoveBox = (entities, { input }) => {
                 Body.translate(player_box.body, { x: 0, y: roll_distance });
             }
         }
-
-
-
+        console.log(rotation);
+        Body.setAngle(player_box.body, player_box.body.angle + 1 - 1);
     }
 
     return entities;
