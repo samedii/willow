@@ -4,15 +4,14 @@ import { Container, Graphics } from '@inlet/react-pixi';
 
 function Box(props) {
   const {x, y} = props.body.position;
-  const {min, max} = props.body.bounds;
   const angle = props.body.angle;
-  const width = (max.x - min.x) / 2;
-  const height = (max.y - min.y) / 2;
+  const width = props.body.width;
+  const height = props.body.height;
   return (
     <Container
       position={[x, y]}
       rotation={angle}
-      pivot={[width, height]}
+      pivot={[width / 2, height / 2]}
     >
       <Graphics
         draw={g => {
