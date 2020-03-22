@@ -3,13 +3,22 @@ import { Container, Graphics } from '@inlet/react-pixi';
 
 
 function Box(props) {
+  const {x, y} = props.body.position;
+  const {min, max} = props.body.bounds;
+  const angle = props.body.angle;
+  const width = (max.x - min.x) / 2;
+  const height = (max.y - min.y) / 2;
   return (
-    <Container position={[props.x, props.y]} rotation={props.rotation} pivot={[props.width / 2, props.height / 2]}>
+    <Container
+      position={[x, y]}
+      rotation={angle}
+      pivot={[width, height]}
+    >
       <Graphics
         draw={g => {
           g.clear()
           g.beginFill(0xff00bb)
-          g.drawRect(0, 0, props.width, props.height)
+          g.drawRect(0, 0, width, height)
           g.endFill()
         }}
       />
