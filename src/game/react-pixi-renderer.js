@@ -7,7 +7,7 @@ const OPTIONS = {
     width: 500
 };
 
-export default (entities, window) => {
+const ReactPixiRenderer = (entities, window) => {
     if (!entities || !window) return null;
     
     var renderedEntities = Object.keys(entities)
@@ -32,3 +32,5 @@ export default (entities, window) => {
 
     return <Stage options={OPTIONS} children={renderedEntities} />
 };
+
+export default ReactPixiRenderer;
