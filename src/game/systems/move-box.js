@@ -20,8 +20,8 @@ const MoveBox = (entities, { input, time }) => {
     const { payload } = input.find(x => x.name === "onMouseMove") || {};
 
     if (payload) {
-        mouse_x = payload.pageX;
-        mouse_y = payload.pageY;
+        mouse_x = payload.pageX + x - 250;
+        mouse_y = payload.pageY + y - 250;
     }
 
     if (!player_box.animating) {
