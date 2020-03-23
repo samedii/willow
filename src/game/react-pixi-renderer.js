@@ -1,5 +1,5 @@
 import React from "react";
-import { Stage } from "@inlet/react-pixi";
+import { Stage, Container } from "@inlet/react-pixi";
 
 const OPTIONS = {
     backgroundColor: 0x1099bb,
@@ -30,7 +30,13 @@ const ReactPixiRenderer = (entities, window) => {
             return child
         });
 
-    return <Stage options={OPTIONS} children={renderedEntities} />
+    const { x, y } = entities.player_box.body.position;
+
+    return (
+        <Stage options={OPTIONS} >
+            <Container children={renderedEntities} x={OPTIONS.width / 2} y={OPTIONS.height / 2} pivot={[x, y]}  />
+        </Stage>
+    );
 };
 
 export default ReactPixiRenderer;
