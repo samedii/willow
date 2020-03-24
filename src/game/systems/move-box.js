@@ -2,8 +2,8 @@ import { Body } from "matter-js";
 
 
 var
-    mouse_x = undefined,
-    mouse_y = undefined;
+    page_x = undefined,
+    page_y = undefined;
 
 
 const MoveBox = (entities, { input, time }) => {
@@ -20,11 +20,14 @@ const MoveBox = (entities, { input, time }) => {
     const { payload } = input.find(x => x.name === "onMouseMove") || {};
 
     if (payload) {
-        mouse_x = payload.pageX + x - 250;
-        mouse_y = payload.pageY + y - 250;
+        page_x = payload.pageX;
+        page_y = payload.pageY;
     }
 
     if (!player_box.animating) {
+        let mouse_x = page_x + x - 250;
+        let mouse_y = page_y + y - 250;
+
         if (mouse_x && mouse_x) {
             Body.setAngle(player_box.body, Math.atan2(
                 mouse_y - y,
